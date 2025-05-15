@@ -1,0 +1,2 @@
+"please build me a minimal fraud detection system in python only tech stack both frontend and backend."
+
