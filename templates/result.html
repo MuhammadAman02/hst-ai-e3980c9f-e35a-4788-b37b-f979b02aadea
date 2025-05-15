@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection Result</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; }
+        h1 { color: #333; }
+        .result { max-width: 400px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; }
+        .fraudulent { color: red; }
+        .not-fraudulent { color: green; }
+        a { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #4CAF50; color: white; text-decoration: none; }
+        a:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <h1>Fraud Detection Result</h1>
+    <div class="result">
+        <h2>Transaction Details:</h2>
+        <p>Amount: ${{ transaction.amount }}</p>
+        <p>Merchant: {{ transaction.merchant }}</p>
+        <p>Card Number: **** **** **** {{ transaction.card_number[-4:] }}</p>
+        <p>Timestamp: {{ transaction.timestamp }}</p>
+        
+        <h2>Fraud Detection Result:</h2>
+        {% if is_fraudulent %}
+            <p class="fraudulent">This transaction is potentially fraudulent.</p>
+        {% else %}
+            <p class="not-fraudulent">This transaction appears to be legitimate.</p>
+        {% endif %}
+    </div>
+    <a href="/">Check Another Transaction</a>
+</body>
+</html>
