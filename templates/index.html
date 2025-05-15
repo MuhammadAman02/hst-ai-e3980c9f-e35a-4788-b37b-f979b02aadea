@@ -1,9 +1,32 @@
-{% extends "base.html" %}
-
-{% block title %}Home - My Application{% endblock %}
-
-{% block content %}
-    <h1>Hello, FastAPI!</h1>
-    <p>Welcome to your new FastAPI application, built using our world-class template foundation!</p>
-    <p>Current time: {{ current_time }}</p>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection System</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; }
+        h1 { color: #333; }
+        form { max-width: 400px; margin: 20px auto; }
+        label { display: block; margin-bottom: 5px; }
+        input { width: 100%; padding: 8px; margin-bottom: 10px; }
+        button { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <h1>Fraud Detection System</h1>
+    <form action="/check-transaction" method="post">
+        <label for="amount">Transaction Amount:</label>
+        <input type="number" id="amount" name="amount" step="0.01" required>
+        
+        <label for="merchant">Merchant Name:</label>
+        <input type="text" id="merchant" name="merchant" required>
+        
+        <label for="card_number">Card Number:</label>
+        <input type="text" id="card_number" name="card_number" required>
+        
+        <button type="submit">Check Transaction</button>
+    </form>
+</body>
+</html>
